@@ -1,4 +1,4 @@
-from ex0.Card import Card
+from ex0.Card import Card, Rarities
 from ex0.CreatureCard import CreatureCard
 # from ex0.Card import MyCard
 
@@ -8,10 +8,10 @@ if __name__ == "__main__":
     print("\nTesting Abstract Base Class Design:")
     try:
         dragon_card: Card = CreatureCard(name="Fire Dragon", cost=5,
-                                         rarity="Legendary",
+                                         rarity=Rarities.LEGENDARY.value,
                                          attack=7, health=5)
         goblin_warrior: Card = CreatureCard(name="Goblin Warrior", cost=1,
-                                            rarity="Legendary",
+                                            rarity=Rarities.LEGENDARY.value,
                                             attack=4, health=10)
     except ValueError as e:
         print(e)

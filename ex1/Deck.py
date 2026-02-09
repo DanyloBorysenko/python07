@@ -1,8 +1,6 @@
 from ex0.Card import Card, CardType
-from ex0.CreatureCard import CreatureCard
-from ex1.SpellCard import SpellCard, SpellEffect
-from ex1.ArtifactCard import ArtifactCard
 from typing import Dict, List
+import random
 
 
 class Deck:
@@ -18,10 +16,12 @@ class Deck:
                 self.cards.remove(card)
     
     def shuffle(self) -> None:
-        pass
+        random.shuffle(self.cards)
     
     def draw_card(self) -> Card:
-        pass
+        card = random.choice(self.cards)
+        self.remove_card(card_name=card.name)
+        return card
     
     def get_deck_stats(self) -> Dict:
         deck_stats: Dict = {}
@@ -34,7 +34,7 @@ class Deck:
         for card in self.cards:
             if card.card_type == CardType.CREATURE:
                 creaters += 1
-            elif card.card_type == CardType.SPEL:
+            elif card.card_type == CardType.SPELL:
                 spells += 1
             elif card.card_type == CardType.ARTIFACT:
                 artifacts += 1
@@ -42,8 +42,8 @@ class Deck:
         if total_cards_count != 0:
             avg_cost = cost_sum / total_cards_count
         deck_stats["total_cards"] = total_cards_count
-        deck_stats["creaters"] = creaters
+        deck_stats["creatures"] = creaters
         deck_stats["spells"] = spells
         deck_stats["artifacts"] = artifacts
-        deck_stats["avg_cost"] = avg_cost
+        deck_stats["avg_cost"] = round(avg_cost, 1)
         return deck_stats

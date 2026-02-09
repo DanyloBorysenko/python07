@@ -8,6 +8,11 @@ class CardType(Enum):
     SPELL = "Spell"
     ARTIFACT = "Artifact"
 
+class Rarities(Enum):
+    LEGENDARY = "Legendary"
+    COMMON = "Common"
+    EPIC = "Epic"
+
 
 class Card(ABC):
     def __init__(self, name: str, cost: int, rarity: str) -> None:
