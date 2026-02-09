@@ -6,6 +6,7 @@ from enum import Enum
 class CardType(Enum):
     CREATURE = "Creature"
     SPELL = "Spell"
+    ARTIFACT = "Artifact"
 
 
 class Card(ABC):
