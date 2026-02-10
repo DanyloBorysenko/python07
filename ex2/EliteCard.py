@@ -6,8 +6,8 @@ from typing import Dict, List, Union
 from enum import Enum
 
 
-class CombatType(Enum):
-    MELEE = "melee"
+# class CombatType(Enum):
+#     MELEE = "melee"
 
 
 class EliteCard(Card, Combatable, Magical):
@@ -19,9 +19,9 @@ class EliteCard(Card, Combatable, Magical):
         self.shield = 3
         self.still_alive = True
     
-    @property
-    def combat_type(self) -> CombatType:
-        return CombatType.MELEE
+    # @property
+    # def combat_type(self) -> CombatType:
+    #     return CombatType.MELEE
 
     def cast_spell(self, spell_name: str, targets: List[Union[CreatureCard, EliteCard]]) -> Dict:
         mana_used = 4
@@ -41,7 +41,7 @@ class EliteCard(Card, Combatable, Magical):
     def attack(self, target: Union[CreatureCard, EliteCard]) -> Dict:
         target.health -= self.damage
         return {'attacker': self.name, 'target': target.name,
-                'damage': self.damage, 'combat_type': self.combat_type.value}
+                'damage': self.damage, 'combat_type': "melee"}
 
     def defend(self, incoming_damage: int) -> Dict:
         damage_taken = incoming_damage - self.shield
