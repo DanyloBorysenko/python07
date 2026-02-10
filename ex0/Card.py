@@ -7,6 +7,7 @@ class CardType(Enum):
     CREATURE = "Creature"
     SPELL = "Spell"
     ARTIFACT = "Artifact"
+    ELITE_CARD = "Elite Card"
 
 class Rarities(Enum):
     LEGENDARY = "Legendary"

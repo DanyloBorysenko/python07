@@ -14,6 +14,8 @@ class Deck:
         for card in self.cards:
             if card.name == card_name:
                 self.cards.remove(card)
+                return True
+        return False
     
     def shuffle(self) -> None:
         random.shuffle(self.cards)
@@ -26,14 +28,14 @@ class Deck:
     def get_deck_stats(self) -> Dict:
         deck_stats: Dict = {}
         total_cards_count = len(self.cards)
-        creaters = 0
+        creatures = 0
         spells = 0
         artifacts = 0
         cost_sum = 0.0
         avg_cost = 0.0
         for card in self.cards:
             if card.card_type == CardType.CREATURE:
-                creaters += 1
+                creatures += 1
             elif card.card_type == CardType.SPELL:
                 spells += 1
             elif card.card_type == CardType.ARTIFACT:
@@ -42,7 +44,7 @@ class Deck:
         if total_cards_count != 0:
             avg_cost = cost_sum / total_cards_count
         deck_stats["total_cards"] = total_cards_count
-        deck_stats["creatures"] = creaters
+        deck_stats["creatures"] = creatures
         deck_stats["spells"] = spells
         deck_stats["artifacts"] = artifacts
         deck_stats["avg_cost"] = round(avg_cost, 1)

@@ -33,33 +33,33 @@ if __name__ == "__main__":
 
    print("\nDrawing and playing cards:\n")
    try:
-        drew_card = deck.draw_card()
-        print(f"Drew: {drew_card.name} ({drew_card.card_type.value})")
-        print(f"Play result: {drew_card.play(game_stats)}")
+        drawn_card = deck.draw_card()
+        print(f"Drew: {drawn_card.name} ({drawn_card.card_type.value})")
+        print(f"Play result: {drawn_card.play(game_stats)}")
    except Exception:
         print("Deck is empty")
    print()
 
    try:
-        drew_card = deck.draw_card()
-        print(f"Drew: {drew_card.name} ({drew_card.card_type.value})")
-        print(f"Play result: {drew_card.play(game_stats)}")
+        drawn_card = deck.draw_card()
+        print(f"Drew: {drawn_card.name} ({drawn_card.card_type.value})")
+        print(f"Play result: {drawn_card.play(game_stats)}")
    except Exception:
         print("Deck is empty")
    print()
 
    try:
-        drew_card = deck.draw_card()
-        print(f"Drew: {drew_card.name} ({drew_card.card_type.value})")
-        print(f"Play result: {drew_card.play(game_stats)}")
+        drawn_card = deck.draw_card()
+        print(f"Drew: {drawn_card.name} ({drawn_card.card_type.value})")
+        print(f"Play result: {drawn_card.play(game_stats)}")
    except Exception:
         print("Deck is empty")
    print()
 
    try:
-        drew_card = deck.draw_card()
-        print(f"Drew: {drew_card.name} ({drew_card.card_type.value})")
-        print(f"Play result: {drew_card.play(game_stats)}")
+        drawn_card = deck.draw_card()
+        print(f"Drew: {drawn_card.name} ({drawn_card.card_type.value})")
+        print(f"Play result: {drawn_card.play(game_stats)}")
    except Exception:
         print("Deck is empty")
    print()
