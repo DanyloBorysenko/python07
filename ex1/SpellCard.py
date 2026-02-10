@@ -52,6 +52,7 @@ class SpellCard(Card):
     def get_card_info(self) -> Dict:
         card_info: Dict = super().get_card_info()
         card_info["effect_type"] = self.effect_type
+        return card_info
     
     def is_playable(self, available_mana: int) -> bool:
         return available_mana >= self.cost and self.is_used is False

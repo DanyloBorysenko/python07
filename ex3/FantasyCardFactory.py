@@ -80,8 +80,7 @@ class FantasyCardFactory(CardFactory):
                 deck.add_card(self.create_spell())
             elif card == 'artifacts':
                 deck.add_card(self.create_artifact())
-        return {"theme": "fantasy", "deck": deck}
-            
+        return {"theme": "fantasy", "deck": deck, "size": size}
 
     def get_supported_types(self) -> Dict:
         return {'creatures': ['dragon', 'goblin'],
