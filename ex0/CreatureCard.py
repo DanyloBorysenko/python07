@@ -36,6 +36,6 @@ class CreatureCard(Card):
     def attack_target(self, target: "CreatureCard") -> Dict:
         return {'attacker': self.name, 'target': target.name,
                 'damage_dealt': self.attack, 'combat_resolved': True}
-    
+
     def is_playable(self, available_mana: int) -> bool:
         return available_mana >= self.cost and self.health > 0

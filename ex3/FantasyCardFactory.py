@@ -27,8 +27,6 @@ class FantasyCardFactory(CardFactory):
             attack = name_or_power
         return CreatureCard(name, cost, rarity, attack, health)
 
-        
-
     def create_spell(self, name_or_power: str | int | None = None) -> Card:
         sup_types: Dict[str, List[str]] = self.get_supported_types()
         name = random.choice(sup_types['spells'])
@@ -57,7 +55,7 @@ class FantasyCardFactory(CardFactory):
         rarity = Rarities.EPIC
         durability = random.randint(1, 5)
         effect = random.choice(["Permanent: +1 mana per turn",
-                                "Permanent: -1 mana per turn from all enemies"])
+                                "Permanent: -1 mana per turn from enemies"])
         if isinstance(name_or_power, str):
             if name_or_power not in sup_types["artifacts"]:
                 raise ValueError("not supported artifact")

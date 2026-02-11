@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Dict, List
 
+
 class GameStrategy(ABC):
     @abstractmethod
     def execute_turn(self, hand: List, battlefield: List) -> Dict:

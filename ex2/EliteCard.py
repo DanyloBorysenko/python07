@@ -3,7 +3,7 @@ from ex0.CreatureCard import CreatureCard
 from ex2.Combatable import Combatable
 from ex2.Magical import Magical
 from typing import Dict, List, Union
-from enum import Enum
+# from enum import Enum
 
 
 # class CombatType(Enum):
@@ -15,18 +15,20 @@ class EliteCard(Card, Combatable, Magical):
         super().__init__(name, cost, rarity)
         self.own_mana = 10
         self.health = 10
-        self.damage = 5
+        self.atack = 5
         self.shield = 3
         self.still_alive = True
-    
+
     # @property
     # def combat_type(self) -> CombatType:
     #     return CombatType.MELEE
 
-    def cast_spell(self, spell_name: str, targets: List[Union[CreatureCard, EliteCard]]) -> Dict:
+    def cast_spell(self, spell_name: str,
+                   targets: List[Union[CreatureCard, "EliteCard"]]) -> Dict:
         mana_used = 4
         return {'caster': self.name, 'spell': spell_name,
-                'targets': [target.name for target in targets], 'mana_used': mana_used}
+                'targets': [target.name for target in targets],
+                'mana_used': mana_used}
 
     def channel_mana(self, amount: int) -> Dict:
         """Connect channels of mana(amount) to encrease own mana"""
@@ -34,14 +36,13 @@ class EliteCard(Card, Combatable, Magical):
         self.own_mana += amount * channel_value
         return {'channeled': amount, 'total_mana': self.own_mana}
 
-
     def get_magic_stats(self) -> Dict:
         return {"name": self.name, "own_mana": self.own_mana}
 
-    def attack(self, target: Union[CreatureCard, EliteCard]) -> Dict:
-        target.health -= self.damage
+    def attack(self, target: Union[CreatureCard, "EliteCard"]) -> Dict:
+        target.health -= self.atack
         return {'attacker': self.name, 'target': target.name,
-                'damage': self.damage, 'combat_type': "melee"}
+                'damage': self.atack, 'combat_type': "melee"}
 
     def defend(self, incoming_damage: int) -> Dict:
         damage_taken = incoming_damage - self.shield
@@ -53,10 +54,9 @@ class EliteCard(Card, Combatable, Magical):
         return {'defender': self.name, 'damage_taken': damage_taken,
                 'damage_blocked': self.shield, 'still_alive': self.still_alive}
 
-
     def get_combat_stats(self) -> Dict:
         return {"name": self.name, "health": self.health,
-                "damage_power": self.damage, "defend_power": self.shield,
+                "damage_power": self.atack, "defend_power": self.shield,
                 "is_still_alive": self.still_alive}
 
     @property
@@ -67,8 +67,7 @@ class EliteCard(Card, Combatable, Magical):
         if self.is_playable(game_state["total_mana"]):
             game_state["total_mana"] -= self.cost
             return {'card_played': self.name,
-                    'mana_used': self.cost,}
+                    'mana_used': self.cost}
         else:
             print("Not enough mana")
             return {}
-    

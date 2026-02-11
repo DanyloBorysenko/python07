@@ -12,14 +12,16 @@ if __name__ == "__main__":
     print("- Combatable: ['attack', 'defend', 'get_combat_stats']")
     print("- Magical: ['cast_spell', 'channel_mana', 'get_magic_stats']")
 
-    arcane_warrior: Card = EliteCard(name="Arcane warrior", cost=5, rarity=Rarities.EPIC)
+    arcane_warrior: Card = EliteCard(name="Arcane warrior", cost=5,
+                                     rarity=Rarities.EPIC)
     print(f"Playing Arcane Warrior ({arcane_warrior.card_type.value}):")
 
     print("\nCombat phase:\n")
-    target = CreatureCard(name="Enemy", cost=5, rarity=Rarities.COMMON.value, attack=5, health=10)
+    target = CreatureCard(name="Enemy", cost=5, rarity=Rarities.COMMON.value,
+                          attack=5, health=10)
     attack_res = arcane_warrior.attack(target)
     print(f"Attack result: {attack_res}")
-    
+
     def_res = arcane_warrior.defend(1)
     print(f"Defense result: {def_res}")
 
@@ -29,4 +31,3 @@ if __name__ == "__main__":
     print(f"Mana channel: {arcane_warrior.channel_mana(3)}")
 
     print("\nMultiple interface implementation successful!")
-

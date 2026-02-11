@@ -9,6 +9,7 @@ class CardType(Enum):
     ARTIFACT = "Artifact"
     ELITE_CARD = "Elite Card"
 
+
 class Rarities(Enum):
     LEGENDARY = "Legendary"
     COMMON = "Common"

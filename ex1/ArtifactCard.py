@@ -21,13 +21,13 @@ class ArtifactCard(Card):
         else:
             print("Not enough mana")
             return {}
-    
+
     def get_card_info(self) -> Dict:
         card_info: Dict = super().get_card_info()
         card_info["effect"] = self.effect
         card_info["durability"] = self.durability
         return card_info
-    
+
     def activate_ability(self) -> Dict:
         res: Dict = {self.name: self.effect}
         print(f"Ability activated: {res}")

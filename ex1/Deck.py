@@ -16,15 +16,15 @@ class Deck:
                 self.cards.remove(card)
                 return True
         return False
-    
+
     def shuffle(self) -> None:
         random.shuffle(self.cards)
-    
+
     def draw_card(self) -> Card:
         card = random.choice(self.cards)
         self.remove_card(card_name=card.name)
         return card
-    
+
     def get_deck_stats(self) -> Dict:
         deck_stats: Dict = {}
         total_cards_count = len(self.cards)
