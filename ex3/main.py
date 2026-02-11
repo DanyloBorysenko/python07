@@ -23,8 +23,12 @@ if __name__ == "__main__":
     engine = GameEngine()
     engine.configure_engine(factory=factory, strategy=strategy)
     print(f"Engine status: {engine.get_engine_status()}")
-    deck: Deck = engine.factory.create_themed_deck(5)["deck"]
-    print(f"hand - {[f"{card.name} ({card.cost})" for card in deck.cards]}")
-    print()
-    print("Turn execution:")
-    print(f"{engine.strategy.execute_turn(deck.cards, [])}")
+    try:
+        deck: Deck = engine.factory.create_themed_deck(5)["deck"]
+        print(f"hand - {[f"{card.name} ({card.cost})"
+                         for card in deck.cards]}")
+        print()
+        print("Turn execution:")
+        print(f"{engine.strategy.execute_turn(deck.cards, [])}")
+    except Exception as e:
+        print(e)

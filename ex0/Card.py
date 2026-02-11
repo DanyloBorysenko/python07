@@ -8,6 +8,7 @@ class CardType(Enum):
     SPELL = "Spell"
     ARTIFACT = "Artifact"
     ELITE_CARD = "Elite Card"
+    TOURNAMENT_CARD = "Tournament"
 
 
 class Rarities(Enum):
