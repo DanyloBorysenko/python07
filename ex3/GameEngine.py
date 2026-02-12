@@ -10,7 +10,8 @@ class GameEngine:
         self.turns_simulated = 0
         self.cards_created = 0
 
-    def configure_engine(self, factory: CardFactory, strategy: GameStrategy) -> None:
+    def configure_engine(self, factory: CardFactory,
+                         strategy: GameStrategy) -> None:
         self.factory = factory
         self.strategy = strategy
 
